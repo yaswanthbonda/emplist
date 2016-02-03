@@ -1,0 +1,60 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Employees</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Age</th>
+      <th>Salary</th>
+      <th>Department</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @employees.each do |employee| %>
+      <tr>
+        <td><%= employee.name %></td>
+        <td><%= employee.email %></td>
+        <td><%= employee.age %></td>
+        <td><%= employee.salary %></td>
+        <td><%= employee.department.department_name %></td>
+        <td><%= link_to 'Show', employee %></td>
+        <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
+        <td><%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Employee', new_employee_path %>
+
+<br>
+<br>
+<h3>You can use these extra queries to view this table in a different way: </h3>
+
+1. <%= link_to 'order this table data by age', orderbyage_path %>
+<br>
+2. <%= link_to 'order this table data by departmentid', orderbydepartment_path %>
+<br>
+3. <%= link_to 'order this table data by salary', orderbysalary_path %>
+<br>
+4. <%= link_to 'get the working persons who are retired', retired_path %>
+<br>
+5. <%= link_to 'the employee with highest salary', topsalary_path %>
+<br>
+6.  <%= link_to 'employees with top 5 salaries', topfivesalaries_path %>
+<br>
+7.  <%= link_to 'employee with highest salary in each department', topsalaryindepartment_path %>
+<br>
+8. <%= link_to 'five older employees in age', topfiveage_path %>
+<br>
+9.  <%= link_to 'highest paid and lowest paid employee', highestandlowest_path %>
+<br>
+10.  <%= link_to 'highest in age and low salary employee', topagelowsalary_path %>
+<br>
